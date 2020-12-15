@@ -1,6 +1,6 @@
 import * as auth from '../../processes/auth.process';
 import * as profile from '../../processes/profile.process';
-import {Test} from '../../node-library';
+import {Test} from 'nk-node-library';
 
 var common = Test.Common;
 
