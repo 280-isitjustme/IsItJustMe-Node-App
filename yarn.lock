@@ -514,7 +514,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/chai@^4.2.12":
+"@types/chai@^4.2.12", "@types/chai@^4.2.14":
   version "4.2.14"
   resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.2.14.tgz#44d2dd0b5de6185089375d976b4ec5caf6861193"
   integrity sha512-G+ITQPXkwTrslfG5L/BksmbLUA0M1iybEsmCWPqzSxsRRhJZimBKJkoMi8fr/CPygPTj4zO5pJH7I2/cm9M7SQ==
@@ -2814,14 +2814,16 @@ nk-js-library@nihalkonda5/nk-js-library:
 
 nk-node-library@nihalkonda5/nk-node-library:
   version "1.0.1"
-  resolved "https://codeload.github.com/nihalkonda5/nk-node-library/tar.gz/e12e63d100e69a1a095467d624ccefc2034ec01c"
+  resolved "https://codeload.github.com/nihalkonda5/nk-node-library/tar.gz/e3a109dc12f931f83c7b2b57461ca499265050a1"
   dependencies:
+    "@types/chai" "^4.2.14"
     "@types/express" "^4.17.8"
     "@types/jsonwebtoken" "^8.5.0"
     "@types/mongoose" "^5.7.36"
     "@types/node" "^14.6.4"
     ajv "^6.12.5"
     ajv-sanitizer "^1.1.4"
+    chai "^4.2.0"
     dotenv "^8.2.0"
     express "^4.17.1"
     express-list-endpoints "^5.0.0"
