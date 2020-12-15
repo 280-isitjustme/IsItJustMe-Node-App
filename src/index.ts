@@ -5,7 +5,10 @@ import app from './startup/app';
 import { Config } from 'nk-node-library';
 import * as routes from './routes';
 
-mongoose.connect(Config.MONGO_URI + '', {
+console.log(Config);
+console.log(process.env);
+
+mongoose.connect(Config.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
