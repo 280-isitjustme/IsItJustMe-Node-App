@@ -12,7 +12,8 @@ Content-Type: application/json
     "email":"nihal+test4@isitjustme.info",
     "password":"strong",
     "firstName":"Nihal",
-    "lastName":"Konda"
+    "lastName":"Konda",
+    "registrationType":"inapp"
 }
 
 ###
