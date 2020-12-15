@@ -2814,7 +2814,7 @@ nk-js-library@nihalkonda5/nk-js-library:
 
 nk-node-library@nihalkonda5/nk-node-library:
   version "1.0.1"
-  resolved "https://codeload.github.com/nihalkonda5/nk-node-library/tar.gz/939de534b21ca7a85f1222f80b5d180df3b516fd"
+  resolved "https://codeload.github.com/nihalkonda5/nk-node-library/tar.gz/7d50e147fe0434aad388a3361e29c723785e317d"
   dependencies:
     "@types/chai" "^4.2.14"
     "@types/express" "^4.17.8"
