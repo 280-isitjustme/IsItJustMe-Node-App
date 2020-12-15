@@ -1,0 +1,36 @@
+###
+# @name signInAPI
+POST http://localhost:5000/api/v1/auth/sign_in
+Content-Type: application/json
+
+{
+    "email":"nihal+test1@isitjustme.info",
+    "password":"strong"
+}
+
+###
+
+@accessToken = {{signInAPI.response.body.$.accessToken.value}}
+@refreshToken = {{signInAPI.response.body.$.refreshToken.value}}
+
+
+###
+GET http://localhost:5000/api/v1/auth/me
+Authorization: Access {{accessToken}}
+
+###
+GET http://localhost:5000/api/v1/user/me
+Authorization: Access {{accessToken}}
+
+###
+GET http://localhost:5000/api/v1/auth/send_confirmation_token
+Authorization: Access {{accessToken}}
+
+###
+POST http://localhost:5000/api/v1/auth/confirmation_token
+Authorization: Access {{accessToken}}
+Content-Type: application/json
+
+{
+    "token":"860940"
+}

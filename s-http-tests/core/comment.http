@@ -1,0 +1,56 @@
+###
+# @name signInAPI
+POST http://localhost:5000/api/v1/auth/sign_in
+Content-Type: application/json
+
+{
+    "email":"nihal+test1@isitjustme.info",
+    "password":"strong"
+}
+
+###
+
+@accessToken = {{signInAPI.response.body.$.accessToken.value}}
+@refreshToken = {{signInAPI.response.body.$.refreshToken.value}}
+
+
+###
+GET http://localhost:5000/api/v1/auth/me
+Authorization: Access {{accessToken}}
+
+###
+GET http://localhost:5000/api/v1/user/me
+Authorization: Access {{accessToken}}
+
+###
+POST http://localhost:5000/api/v1/post/5fba50cd606cd82cd252857b/comment
+Authorization: Access {{accessToken}}
+Content-Type: application/json
+
+{
+    "content":"Sample Comment 2",
+    "context":"update"
+}
+
+###
+POST http://localhost:5000/api/v1/post/5fba50cd606cd82cd252857b/comment/search
+Content-Type: application/json
+
+{
+    "sort":{
+        "createdAt":-1
+    }
+}
+###
+PUT http://localhost:5000/api/v1/post/5fba50cd606cd82cd252857b/comment/5fba511b606cd82cd2528585
+Authorization: Access {{accessToken}}
+Content-Type: application/json
+
+{
+    "content":"Sample Comment 2 Resolve",
+    "context":"resolve"
+}
+
+###
+DELETE http://localhost:5000/api/v1/post/5fba50cd606cd82cd252857b/comment/5fba5112606cd82cd2528582
+Authorization: Access {{accessToken}}

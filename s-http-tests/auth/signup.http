@@ -1,0 +1,26 @@
+###
+# @name signUpAPI
+POST http://localhost:5000/api/v1/auth/sign_up
+Content-Type: application/json
+
+{
+    "email":"nihal+test1@isitjustme.info",
+    "password":"strong",
+    "firstName":"Nihal",
+    "lastName":"Konda",
+    "registrationType":"inapp"
+}
+
+###
+
+@accessToken = {{signUpAPI.response.body.$.accessToken.value}}
+@refreshToken = {{signUpAPI.response.body.$.refreshToken.value}}
+
+
+###
+GET http://localhost:5000/api/v1/auth/me
+Authorization: Access {{accessToken}}
+
+###
+GET http://localhost:5000/api/v1/user/me
+Authorization: Access {{accessToken}}

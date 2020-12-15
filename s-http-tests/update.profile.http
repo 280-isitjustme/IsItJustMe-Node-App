@@ -1,0 +1,26 @@
+###
+# @name signInAPI
+
+POST http://localhost:4000/api/v1/auth/sign_in
+Content-Type: application/json
+
+{
+    "email":"nihal+test1@cabbuddies.com",
+    "password":"strong"
+}
+
+###
+
+@accessToken = {{signInAPI.response.body.$.accessToken.value}}
+@refreshToken = {{signInAPI.response.body.$.refreshToken.value}}
+
+###
+
+PUT http://localhost:4000/api/v1/user
+Authorization: Access {{accessToken}}
+Content-Type: application/json
+
+{
+    "displayPicture": "blahblahblah",
+    "firstName" : "Nihal"
+}

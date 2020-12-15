@@ -1,0 +1,84 @@
+###
+# @name signInAPI
+POST http://localhost:5000/api/v1/auth/sign_in
+Content-Type: application/json
+
+{
+    "email":"nihal+test1@isitjustme.info",
+    "password":"strong"
+}
+
+###
+
+@accessToken = {{signInAPI.response.body.$.accessToken.value}}
+@refreshToken = {{signInAPI.response.body.$.refreshToken.value}}
+
+
+###
+GET http://localhost:5000/api/v1/auth/me
+Authorization: Access {{accessToken}}
+
+###
+GET http://localhost:5000/api/v1/user/me
+Authorization: Access {{accessToken}}
+
+###
+POST http://localhost:5000/api/v1/post
+Authorization: Access {{accessToken}}
+Content-Type: application/json
+
+{
+    "content":{
+        "title":"Sample Post Title",
+        "body":"Sample Post Body",
+        "tags":[
+            {
+                "mainType":"mt1",
+                "subType":"sb1"
+            },
+            {
+                "mainType":"mt1",
+                "subType":"sb2"
+            },
+            {
+                "mainType":"mt2",
+                "subType":"sb1"
+            }
+        ]
+    }
+}
+
+###
+POST http://localhost:5000/api/v1/post/search
+Content-Type: application/json
+
+{
+    "sort":{
+        "createdAt":-1
+    }
+}
+###
+PUT http://localhost:5000/api/v1/post/5fba47ad898221272a766f61
+Authorization: Access {{accessToken}}
+Content-Type: application/json
+
+{
+    "content":{
+        "title":"Sample Post Title Old",
+        "body":"Sample Post Body Old",
+        "tags":[
+            {
+                "mainType":"mt1",
+                "subType":"sb3"
+            },
+            {
+                "mainType":"mt1",
+                "subType":"sb2"
+            }
+        ]
+    }
+}
+
+###
+DELETE http://localhost:5000/api/v1/post/5fba47ad898221272a766f61
+Authorization: Access {{accessToken}}
